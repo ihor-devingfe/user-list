@@ -1,0 +1,100 @@
+:host {
+  display: block;
+  padding: 1.5rem;
+  height: 100%;
+  background: var(--unnamed-color-ffffff) 0 0 no-repeat padding-box;
+  border: 1px solid var(--unnamed-color-ebedf3);
+  box-shadow: 0 0 30px #523F690D;
+  border-radius: 6px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-helvetica);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-3f4254);
+}
+
+.form {
+  &__field {
+    margin: 1rem 0;
+  }
+
+  &__label {
+    display: block;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-13)/var(--unnamed-line-spacing-16) var(--unnamed-font-family-helvetica);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-3f4254);
+  }
+
+  &__input {
+    display: block;
+    margin: 3px 0;
+    padding: 1rem;
+    width: 100%;
+    height: 46px;
+    background: var(--unnamed-color-f3f6f9) 0 0 no-repeat padding-box;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    opacity: 1;
+
+    &:disabled:read-only {
+      filter: brightness(0.95);
+      cursor: not-allowed;
+    }
+
+    &.ng-invalid.ng-dirty {
+      border-color: var(--unnamed-color-f44682);
+    }
+  }
+
+  &__input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__input-wrapper {
+    position: relative;
+
+    .form__input {
+      padding-left: 16px + 24px + 3px;
+    }
+  }
+
+  &__field-errors {
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-13)/var(--unnamed-line-spacing-16) var(--unnamed-font-family-helvetica);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-ef7da0);
+  }
+
+  &__footer {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+
+    &--edit-form {
+      justify-content: space-between;
+    }
+  }
+}
+
+.select-wrapper {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 11px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    background: transparent url('/assets/down.svg') 0 0 no-repeat padding-box;
+  }
+}

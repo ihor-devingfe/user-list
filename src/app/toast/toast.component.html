@@ -1,0 +1,17 @@
+<div class="toast-container toast-container--error">
+    @for (toast of errorToasts$ | async; track toast.id) {
+        <ng-container *ngTemplateOutlet="toastTemplate; context: { $implicit: toast }"/>
+    }
+</div>
+
+<div class="toast-container toast-container--success">
+    @for (toast of successToasts$ | async; track toast.id) {
+        <ng-container *ngTemplateOutlet="toastTemplate; context: { $implicit: toast }"/>
+    }
+</div>
+
+<ng-template #toastTemplate let-toast>
+    <div class="toast" [ngClass]="toast.type">
+        <span class="toast__message">{{ toast.message }}</span>
+    </div>
+</ng-template>

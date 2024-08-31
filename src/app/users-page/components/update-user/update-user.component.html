@@ -1,0 +1,7 @@
+@if (user) {
+    <ul-user-form
+            [user]="user"
+            (delete)="onDelete()"
+            (close)="close()"
+            (save)="onSave($event)"/>
+}

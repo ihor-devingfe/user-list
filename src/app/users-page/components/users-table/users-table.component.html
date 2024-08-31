@@ -1,0 +1,36 @@
+<table class="table">
+    <thead>
+    <tr #columnNames>
+        <th class="table__column-name">Username</th>
+        <th class="table__column-name">First name</th>
+        <th class="table__column-name">Last name</th>
+        <th class="table__column-name">Email</th>
+        <th class="table__column-name">Type</th>
+    </tr>
+    </thead>
+    <tbody>
+        @for (user of users(); track user.username) {
+            <tr
+                    class="table__row"
+                    routerLinkActive="table__row--selected"
+                    [routerLink]="[{ outlets: { details: ['user', user.username, 'update'] } }]">
+                <td class="table__cell">{{ user.username }}</td>
+                <td class="table__cell">{{ user.first_name }}</td>
+                <td class="table__cell">{{ user.last_name }}</td>
+                <td class="table__cell">{{ user.email }}</td>
+                <td class="table__cell">{{ user.user_type }}</td>
+            </tr>
+        } @empty {
+            <tr class="table__row">
+                <td class="table__cell" [colSpan]="columnNames.children.length">There are no users yet</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="5" class="table__paginator">
+            <!--      TODO: add paginator  -->
+        </td>
+    </tr>
+    </tfoot>
+</table>

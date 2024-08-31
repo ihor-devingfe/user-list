@@ -1,0 +1,104 @@
+@if (form) {
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <header class="header">
+            <h3>{{ title }}</h3>
+            <button type="button" class="icon" (click)="onClose()">
+                <svg width="24" height="24">
+                    <use xlink:href="assets/close.svg#close"></use>
+                </svg>
+            </button>
+        </header>
+
+        <div class="form__field">
+            <label class="form__label">
+                Username*
+                @if (isEditForm) {
+                    <input class="form__input" type="text" maxlength="32" required disabled readonly
+                           [value]="username.value">
+                } @else {
+                    <input formControlName="username" class="form__input" type="text" maxlength="32" required>
+                }
+
+            </label>
+            <p class="form__field-errors"
+               [style.display]="username.dirty && username.invalid ? 'block' : 'none'"
+               [ulValidationErrors]="username.errors"></p>
+        </div>
+        <div class="form__field">
+            <label class="form__label">
+                First name*
+                <input formControlName="first_name" class="form__input" type="text" maxlength="32" required>
+            </label>
+            <p class="form__field-errors"
+               [style.display]="first_name.dirty && first_name.invalid ? 'block' : 'none'"
+               [ulValidationErrors]="first_name.errors"></p>
+        </div>
+        <div class="form__field">
+            <label class="form__label">
+                Last name*
+                <input formControlName="last_name" class="form__input" type="text" maxlength="32" required>
+            </label>
+            <p class="form__field-errors"
+               [style.display]="last_name.dirty && last_name.invalid ? 'block' : 'none'"
+               [ulValidationErrors]="last_name.errors"></p>
+        </div>
+        <div class="form__field">
+            <label class="form__label">
+                Email*
+                <div class="form__input-wrapper">
+                    <svg width="24" height="24" class="form__input-icon">
+                        <use xlink:href="assets/email.svg#email"></use>
+                    </svg>
+                    <input formControlName="email" class="form__input" type="email" maxlength="32" required>
+                </div>
+            </label>
+            <p class="form__field-errors"
+               [style.display]="email.dirty && email.invalid ? 'block' : 'none'"
+               [ulValidationErrors]="email.errors"></p>
+        </div>
+        <div class="form__field">
+            <label class="form__label select-wrapper">
+                Type*
+                <select formControlName="user_type" class="form__input" required>
+                    <option value="" selected disabled hidden>Choose an option...</option>
+                    <option value=""></option>
+                    <!--                    <option [value]="null"></option>-->
+                    <option [value]="userTypeOption.Admin">{{ userTypeOption.Admin }}</option>
+                    <option [value]="userTypeOption.Driver">{{ userTypeOption.Driver }}</option>
+                </select>
+            </label>
+            <p class="form__field-errors"
+               [style.display]="user_type.dirty && user_type.invalid ? 'block' : 'none'"
+               [ulValidationErrors]="user_type.errors"></p>
+        </div>
+
+        @if (!isEditForm) {
+            <div class="form__field">
+                <label class="form__label">
+                    Password*
+                    <input formControlName="password" class="form__input" type="password" maxlength="32" required>
+                </label>
+                <p class="form__field-errors"
+                   [style.display]="password.dirty && password.invalid ? 'block' : 'none'"
+                   [ulValidationErrors]="password.errors"></p>
+            </div>
+            <div class="form__field">
+                <label class="form__label">
+                    Repeat password*
+                    <input formControlName="repeatPassword" class="form__input" type="password" maxlength="32" required>
+                </label>
+                <p class="form__field-errors"
+                   [style.display]="repeatPassword.dirty && repeatPassword.invalid ? 'block' : 'none'"
+                   [ulValidationErrors]="repeatPassword.errors"></p>
+            </div>
+        }
+
+        <footer class="form__footer" [class.form__footer--edit-form]="isEditForm">
+            @if (isEditForm) {
+                <button class="button button--danger" type="button" (click)="onDelete()">Delete</button>
+            }
+            <button class="button" [disabled]="form.invalid">{{ isEditForm ? 'Save' : 'Create' }}</button>
+        </footer>
+
+    </form>
+}
