@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ValidationError } from 'class-validator';
-import { UserDto, UserType } from '../../../api';
+import { UserDto, UserType } from '../../../../../api';
 import { passwordMatchValidator } from './password-match.validator';
 import { ValidationErrorsDirective } from './validation-errors.directive';
 

@@ -13,7 +13,8 @@
             <tr
                     class="table__row"
                     routerLinkActive="table__row--selected"
-                    [routerLink]="[{ outlets: { details: ['user', user.username, 'update'] } }]">
+                    [routerLink]="[{ outlets: { details: ['user', user.username, 'update'] } }]"
+                    [relativeTo]="route.parent">
                 <td class="table__cell">{{ user.username }}</td>
                 <td class="table__cell">{{ user.first_name }}</td>
                 <td class="table__cell">{{ user.last_name }}</td>

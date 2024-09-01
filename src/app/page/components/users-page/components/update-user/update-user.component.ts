@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { catchError, EMPTY, tap } from 'rxjs';
-import { UserDto } from '../../../api';
-import { UserService } from '../../../services/user.service';
+import { UserDto } from '../../../../../api';
+import { UserService } from '../../../../../services/user.service';
 import { UserFormComponent } from '../user-form/user-form.component';
 
 @Component({

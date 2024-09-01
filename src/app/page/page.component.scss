@@ -1,0 +1,37 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(3, min-content);
+  grid-gap: 1.5rem;
+}
+
+.navigation {
+  grid-column: 1 / 13;
+  grid-row: 1 / 2;
+
+  display: flex;
+
+  a {
+    margin: 1rem;
+  }
+
+  .home {
+    margin-left: auto;
+  }
+}
+
+.main {
+  grid-column: 1 / 9;
+  grid-row: 2 / 4;
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: subgrid;
+}
+
+.details {
+  grid-column: 9 / 13;
+  grid-row: 3 / 4;
+}
+
+
