@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, InputSignal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { UserDto } from '../../../api';
+import { ChangeDetectionStrategy, Component, inject, input, InputSignal } from '@angular/core';
+import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
+import { UserDto } from '../../../../../api';
 
 @Component({
   selector: 'ul-users-table',
@@ -17,4 +17,6 @@ import { UserDto } from '../../../api';
 })
 export class UsersTableComponent {
   users: InputSignal<UserDto[]> = input.required<UserDto[]>();
+
+  protected route: ActivatedRoute = inject(ActivatedRoute);
 }
