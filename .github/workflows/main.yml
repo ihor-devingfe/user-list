@@ -32,20 +32,26 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Hello!
-          echo What is in this directory?
+          echo 1) What is in this directory?
           ls -a
           echo
-          echo Is Node.js installed?
+
+          echo 2) Is Node.js installed?
           node -v
           echo
-          echo install the project
+
+          echo 3) Install the project
           npm ci
           echo
-          npm i -g @angular/cli@latest
-          echo
-          echo Is Git installed?
-          git --version
-          echo
-          echo And what about the Angular?
-          ng --version
+
+          echo 4) What is the workspace location?
+          echo $RUNNER_WORKSPACE
+
+          echo 5) Who is running the script?
+          whoami
+
+          echo 6) How is the disc laid out?
+          df
+
+          echo 7) What environment variables are available?
+          env
