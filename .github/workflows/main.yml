@@ -39,6 +39,9 @@ jobs:
           echo Is Node.js installed?
           node -v
           echo
+          echo install the project
+          npm ci
+          echo
           echo Is Git installed?
           git --version
           echo
